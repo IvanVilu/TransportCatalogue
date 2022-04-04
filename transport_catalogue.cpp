@@ -6,6 +6,18 @@
 #include <iomanip>
 #include <unordered_set>
 
+size_t StopHash::operator()(const Stop& stop) const
+{
+    std::hash<std::string> hasher;
+    return hasher(stop.name);
+}
+
+Bus::Bus(const std::string& name_, int route_lenght_, double geo_dist_, std::vector<Stop*> stops_) :
+    name(name_),
+    route_lenght(route_lenght_),
+    geo_dist(geo_dist_),
+    stops(stops_) {}
+
 size_t TransportCatalogue::GetUniqueStopCount(const Bus* bus) {
     std::unordered_set<std::string_view> res;
     for(const Stop* stop : bus->stops)
@@ -28,13 +40,37 @@ Stop* TransportCatalogue::FindStop(const std::string_view stop_name) {
 }
 
 void TransportCatalogue::AddBus(std::string& bus_name, const std::vector<std::string_view> stops_names) {
-   // std::vector<Stop*> stops;
-   // stops.reserve(stops_names.size());
-    auto& bus_it = buses_.emplace_back(Bus(std::move(bus_name), {}));
-    for(const std::string_view& stop_name : stops_names) {
-        buses_.back().stops.push_back(stopname_to_stop_.at(stop_name));
-        stop_to_busnames_[stopname_to_stop_.at(stop_name)].insert(buses_.back().name);
+
+    auto& bus_it = buses_.emplace_back(Bus(std::move(bus_name), 0, 0.0, {}));
+
+    for (size_t i = 0; i < stops_names.size() - 1; ++i) {
+
+        buses_.back().stops.push_back(stopname_to_stop_.at(stops_names[i]));
+        stop_to_busnames_[stopname_to_stop_.at(stops_names[i])].insert(buses_.back().name);
+
+        // ведёмм подсчет расстояний до i < stops_names.size() - 1, чтобыы не учитывать последнюю остновку
+        if (i != stops_names.size() - 1) {
+            auto stop_to_stop = stop_to_stop_distance_.find(std::make_pair(stopname_to_stop_.at(stops_names[i]),
+                stopname_to_stop_.at(stops_names[i + 1])));
+            if (stop_to_stop != stop_to_stop_distance_.end()) {
+                bus_it.route_lenght += (*stop_to_stop).second;
+            }
+            else {
+                stop_to_stop = stop_to_stop_distance_.find(std::make_pair(stopname_to_stop_.at(stops_names[i + 1]),
+                    stopname_to_stop_.at(stops_names[i])));
+                if (stop_to_stop != stop_to_stop_distance_.end()) {
+                    bus_it.route_lenght += (*stop_to_stop).second;
+                }
+            }
+
+            Coordinates lhs = { stopname_to_stop_.at(stops_names[i])->latitude, stopname_to_stop_.at(stops_names[i])->longitude };
+            Coordinates rhs = { stopname_to_stop_.at(stops_names[i + 1])->latitude, stopname_to_stop_.at(stops_names[i + 1])->longitude };
+
+            bus_it.geo_dist += ComputeDistance(lhs, rhs);
+        }
     }
+
+
     busname_to_bus_[bus_it.name] = &bus_it;
 }
 
@@ -55,28 +91,9 @@ const BusInfo TransportCatalogue::GetBusInfo(const std::string_view bus_name) {
         
         bus_info.unique_stops_count = GetUniqueStopCount(bus);
         
-        int distance = 0;
-        double geo_dist = 0.0;
-        for (size_t i = 0; i < bus->stops.size() - 1; ++i) {
-  
-            auto stop_to_stop = stop_to_stop_distance_.find(std::make_pair(bus->stops[i], bus->stops[i+1]));
-            if(stop_to_stop != stop_to_stop_distance_.end()) {
-                distance += (*stop_to_stop).second;
-            } else {
-                stop_to_stop = stop_to_stop_distance_.find(std::make_pair(bus->stops[i+1], bus->stops[i]));
-                if(stop_to_stop != stop_to_stop_distance_.end()) {
-                    distance += (*stop_to_stop).second;
-                }
-            }
-            
-            Coordinates lhs = { bus->stops[i]->latitude, bus->stops[i]->longitude };
-            Coordinates rhs = { bus->stops[i+1]->latitude, bus->stops[i+1]->longitude };
-            
-            geo_dist += ComputeDistance(lhs, rhs);
-            
-        }
-        bus_info.route_lenght = distance;
-        bus_info.geo_dist = geo_dist;
+        bus_info.route_lenght = bus->route_lenght;
+        bus_info.geo_dist = bus->geo_dist;
+        
     }
     return bus_info;
 }
@@ -135,4 +152,3 @@ void TransportCatalogue::AddStopsDistances(const std::string_view query) {
         start_pos = query.find_first_not_of(' ', last_stop_pos + 1);
     }
 }
-

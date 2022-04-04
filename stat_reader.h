@@ -25,6 +25,6 @@ struct StopInfo {
     bool is_found = true;
 };
 
-void PrintBusInfo(const BusInfo& bus_info);
-void PrintStopInfo(const StopInfo& stop_info);
+void PrintBusInfo(std::ostream& output, const BusInfo& bus_info);
+void PrintStopInfo(std::ostream& output, const StopInfo& stop_info);
 

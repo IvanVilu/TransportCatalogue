@@ -18,20 +18,15 @@ struct Stop {
 
 struct StopHash {
     
-   size_t operator() (const Stop& stop) const {
-    std::hash<std::string> hasher;
-     return hasher(stop.name);
-   }
+    size_t operator() (const Stop& stop) const;
 };
 
 struct Bus {
-    Bus(const std::string& name_, std::vector<Stop*> stops_) :
-    name(name_),
-    stops(stops_) {
-        
-    };
+    Bus(const std::string& name_, int route_lenght_, double geo_dist_, std::vector<Stop*> stops_);
     
     std::string name;
+    int route_lenght = 0;
+    double geo_dist = 0;
     std::vector<Stop*> stops;
 };
 
