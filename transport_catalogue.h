@@ -17,9 +17,9 @@ struct Stop {
 };
 
 struct StopHash {
-    
     size_t operator() (const Stop& stop) const;
 };
+
 
 struct Bus {
     Bus(const std::string& name_, int route_lenght_, double geo_dist_, std::vector<Stop*> stops_);
@@ -33,10 +33,7 @@ struct Bus {
 struct PairHash {
 public:
   template<typename T>
-  std::size_t operator()(const std::pair<T*, T*> x) const
-  {
-    return hasher_(x.first) + hasher_(x.second) * 37;
-  }
+  std::size_t operator()(const std::pair<T*, T*> x) const;
 private:
     std::hash<const void*> hasher_;
 };

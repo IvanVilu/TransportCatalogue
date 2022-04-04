@@ -12,6 +12,12 @@ size_t StopHash::operator()(const Stop& stop) const
     return hasher(stop.name);
 }
 
+template<typename T>
+inline std::size_t PairHash::operator()(const std::pair<T*, T*> x) const
+{
+    return hasher_(x.first) + hasher_(x.second) * 37;
+}
+
 Bus::Bus(const std::string& name_, int route_lenght_, double geo_dist_, std::vector<Stop*> stops_) :
     name(name_),
     route_lenght(route_lenght_),
