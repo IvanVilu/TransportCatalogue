@@ -8,6 +8,7 @@
 #include "map_renderer.h"
 #include "domain.h"
 #include "json.h"
+#include "json_builder.h"
 
 class RequestHandler {
 public:

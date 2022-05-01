@@ -45,27 +45,27 @@ json::Document RequestHandler::ProcessStatRequests(const std::vector<StatRequest
     json::Array root_array;
     root_array.reserve(requests.size());
 
-    std::pair<std::string, json::Node> err_not_found = 
-        std::make_pair("error_message", json::Node("not found"s));
-
     for (const StatRequest& request : requests) {
         if (request.type == StatRequestType::Bus) {
             auto bus_stat = GetBusStat(request.name);
             if (bus_stat) {
                 BusInfo stat = bus_stat.value();
-                json::Dict bus;
-                bus.insert({ "curvature", json::Node(stat.GetCurvature()) });
-                bus.insert({ "request_id", json::Node(request.id) });
-                bus.insert({ "route_length", json::Node(static_cast<double>(stat.route_lenght)) });
-                bus.insert({ "stop_count", json::Node(stat.stops_count) });
-                bus.insert({ "unique_stop_count", json::Node(stat.unique_stops_count) });
-                root_array.push_back(json::Node(std::move(bus)));
+                json::Node n = json::Builder{}.StartDict().
+                Key("curvature").Value(stat.GetCurvature()).
+                Key("request_id").Value(request.id).
+                Key("route_length").Value(stat.route_lenght).
+                Key("stop_count").Value(stat.stops_count).
+                Key("unique_stop_count").Value(stat.unique_stops_count).
+                EndDict().Build();
+                root_array.push_back(n);
             }
             else {
-                json::Dict error;
-                error.insert({ "request_id", request.id });
-                error.insert(err_not_found);
-                root_array.push_back(json::Node(std::move(error)));
+                json::Node n = json::Builder{}.StartDict().
+                Key("request_id").Value(request.id).
+                Key("error_message").Value("not found").
+                EndDict().Build();
+                
+                root_array.push_back(n);
             }
 
 
@@ -74,30 +74,27 @@ json::Document RequestHandler::ProcessStatRequests(const std::vector<StatRequest
             auto stop_stat = GetStopStat(request.name);
             if (stop_stat) {
                 StopInfo stat = stop_stat.value();
-                json::Dict stop;
-                stop.insert({ "request_id", request.id });
                 json::Array buses;
                 for (const std::string_view& bus : stat.buses) {
                     std::string bus_name(bus.begin(), bus.end());
                     buses.push_back(json::Node(std::move(bus_name)));
                 }
-                stop.insert({ "buses", json::Node(std::move(buses)) });
-                root_array.push_back(json::Node(std::move(stop)));
+                root_array.push_back(json::Builder{}.StartDict().
+                                     Key("request_id").Value(request.id).
+                                     Key("buses").Value(buses).EndDict().Build());
             } else {
-                json::Dict error;
-                error.insert({ "request_id", request.id });
-                error.insert(err_not_found);
-                root_array.push_back(json::Node(std::move(error)));
+                root_array.push_back(json::Builder{}.StartDict().
+                                     Key("request_id").Value(request.id).
+                                     Key("error_message").Value("not found").EndDict().Build());
             }
         }
         else if (request.type == StatRequestType::Map) {
-           json::Dict map_responce;
            svg::Document map = RenderMap();
            std::ostringstream strm;
            map.Render(strm);
-           map_responce.insert({ "request_id", request.id });
-           map_responce.insert({ "map", strm.str() });
-           root_array.push_back(map_responce);
+           root_array.push_back(json::Builder{}.StartDict().
+                                Key("request_id").Value(request.id).
+                                Key("map").Value(strm.str()).EndDict().Build());
         }
     }
     return json::Document(root_array);

@@ -34,9 +34,7 @@ struct BusInfo : public Response {
     int route_lenght;
     double geo_dist;
 
-    double GetCurvature() const {
-        return  route_lenght / geo_dist;
-    }
+    double GetCurvature() const;
 };
 
 struct StopInfo : public Response {
@@ -47,10 +45,8 @@ struct StopInfo : public Response {
 };
 
 struct StatRequest {
-    StatRequest(int id_, StatRequestType type_, const std::string& name_) :
-        id(id_),
-        type(type_),
-        name(name_) {}
+    StatRequest(int id_, StatRequestType type_, const std::string& name_);
+    
     int id;
     StatRequestType type;
     const std::string name;

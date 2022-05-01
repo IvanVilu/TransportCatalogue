@@ -17,15 +17,16 @@ int main() {
 
     json::Document document_input = json::Load(std::cin);
     
-   vector<AddBusQuery> add_bus_queries;
+    
+    vector<AddBusQuery> add_bus_queries;
     vector<AddStopQuery> add_stop_queries;
 
     vector<StatRequest> stat_requests;
     renderer::RenderSettings render_settings;
-    for (const auto& [key, value] : document_input.GetRoot().AsMap()) {
+    for (const auto& [key, value] : document_input.GetRoot().AsDict()) {
         if (key == "base_requests") {
             for (const auto& query : value.AsArray()) {
-                auto query_as_map = query.AsMap();
+                auto query_as_map = query.AsDict();
                 if (query_as_map.at("type").AsString() == "Bus") {
                     add_bus_queries.push_back(ReadBusQuery(query_as_map));
                 }
@@ -67,8 +68,8 @@ int main() {
         catalogue.AddBus(query);
     }
 
-
     auto response_doc = handler.ProcessStatRequests(stat_requests);
     json::Print(response_doc, std::cout);
+    return 1;
 }
 

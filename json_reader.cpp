@@ -1,5 +1,14 @@
 #include "json_reader.h"
 
+double BusInfo::GetCurvature() const {
+    return  route_lenght / geo_dist;
+}
+
+StatRequest::StatRequest(int id_, StatRequestType type_, const std::string& name_) :
+    id(id_),
+    type(type_),
+    name(name_) {}
+
 StatRequestType StringToStatRequestType(std::string_view s) {
     if (s == "Bus")
         return StatRequestType::Bus;
@@ -22,7 +31,6 @@ std::string_view ParseBusInfoQuery(const std::string_view query) {
     name_first_pos = query.find_first_not_of(' ', name_first_pos);
     return query.substr(name_first_pos, query.size() - name_first_pos);
 }
-
 
 std::string_view ParseStopInfoQuery(const std::string_view query) {
     size_t name_first_pos = query.find("Stop ") + 5;
@@ -55,7 +63,7 @@ QueryType ConvertStringToQueryType(const std::string_view s) {
 renderer::RenderSettings ParseRenderSettings(json::Document render_settings)
 {
     renderer::RenderSettings res;
-    auto settings_map = render_settings.GetRoot().AsMap();
+    auto settings_map = render_settings.GetRoot().AsDict();
     if (settings_map.count("width"))
         res.width = settings_map.at("width").AsDouble();
 
@@ -150,7 +158,7 @@ AddStopQuery ReadAddStopQuery(json::Dict& query) {
     stop_query.name = std::move(query.at("name").AsString());
     stop_query.coordinates.lat = query.at("latitude").AsDouble();
     stop_query.coordinates.lng = query.at("longitude").AsDouble();
-    for (const auto& [stop_name, dist] : query.at("road_distances").AsMap()) {
+    for (const auto& [stop_name, dist] : query.at("road_distances").AsDict()) {
         stop_query.distances.insert({ stop_name, dist.AsInt() });
     }
     return stop_query;
@@ -159,7 +167,7 @@ AddStopQuery ReadAddStopQuery(json::Dict& query) {
 std::vector<StatRequest> ReadStatRequests(const json::Array& query) {
     std::vector<StatRequest> res;
     for (const auto& query : query) {
-        auto query_as_map = query.AsMap();
+        auto query_as_map = query.AsDict();
         StatRequest stat_request(query_as_map.at("id").AsInt(),
             StringToStatRequestType(query_as_map.at("type").AsString()),
             query_as_map.find("name") != query_as_map.end() ?
