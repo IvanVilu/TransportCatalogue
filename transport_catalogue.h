@@ -32,14 +32,15 @@ public:
 
     void AddStop(const domain::Stop& stop);
    
-    void AddBus(const AddBusQuery& query);
+    void AddBus(const domain::AddBusQuery& query);
 
     const std::optional<domain::Bus*> FindBus(const std::string_view bus_name) const;
+    
     const std::optional<domain::Stop*> FindStop(const std::string_view& stopname) const;
    
-    const StopInfo GetStopInfo(const std::string_view stop_name);
+    const domain::StopInfo GetStopInfo(const std::string_view stop_name);
    
-    void AddStopsDistances(const AddStopQuery& query);
+    void AddStopsDistances(const domain::AddStopQuery& query);
 
     const std::unordered_map<std::string_view, domain::Bus*> GetBusnameToBus() const;
 

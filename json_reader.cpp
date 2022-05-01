@@ -1,66 +1,23 @@
 #include "json_reader.h"
 
-double BusInfo::GetCurvature() const {
-    return  route_lenght / geo_dist;
-}
-
-StatRequest::StatRequest(int id_, StatRequestType type_, const std::string& name_) :
-    id(id_),
-    type(type_),
-    name(name_) {}
-
-StatRequestType StringToStatRequestType(std::string_view s) {
+domain::StatRequestType JSON_Reader::StringToStatRequestType(std::string_view s) {
     if (s == "Bus")
-        return StatRequestType::Bus;
+        return domain::StatRequestType::Bus;
     else if (s == "Stop")
-        return StatRequestType::Stop;
+        return domain::StatRequestType::Stop;
     else if (s == "Map")
-        return StatRequestType::Map;
+        return domain::StatRequestType::Map;
 
     throw std::invalid_argument("Cannot convert string request to StatRequestType");
 }
 
-domain::Stop ParseAddStopQuery(const AddStopQuery& query)
+domain::Stop JSON_Reader::ParseAddStopQuery(const domain::AddStopQuery& query)
 {
     return { std::move(query.name),
         query.coordinates.lat, query.coordinates.lng };
 }
 
-std::string_view ParseBusInfoQuery(const std::string_view query) {
-    size_t name_first_pos = query.find("Bus ") + 4;
-    name_first_pos = query.find_first_not_of(' ', name_first_pos);
-    return query.substr(name_first_pos, query.size() - name_first_pos);
-}
-
-std::string_view ParseStopInfoQuery(const std::string_view query) {
-    size_t name_first_pos = query.find("Stop ") + 5;
-    name_first_pos = query.find_first_not_of(' ', name_first_pos);
-    return query.substr(name_first_pos, query.size() - name_first_pos);
-}
-
-QueryType ConvertStringToQueryType(const std::string_view s) {
-    if (s.find("Stop") != s.npos) {
-        if (s.find(":") != s.npos) {
-            return QueryType::AddStop;
-        }
-        else {
-            return QueryType::GetStopInfo;
-        }
-
-    }
-    else if (s.find("Bus") != s.npos) {
-        if (s.find(':') != s.npos) {
-            return QueryType::AddBus;
-        }
-        else {
-            return QueryType::GetBusInfo;
-        }
-    }
-
-    return QueryType::AddBus;
-}
-
-renderer::RenderSettings ParseRenderSettings(json::Document render_settings)
+renderer::RenderSettings JSON_Reader::ParseRenderSettings(json::Document render_settings)
 {
     renderer::RenderSettings res;
     auto settings_map = render_settings.GetRoot().AsDict();
@@ -110,7 +67,7 @@ renderer::RenderSettings ParseRenderSettings(json::Document render_settings)
     return res;
 }
 
-svg::Color ParseColor(const json::Node& node) {
+svg::Color JSON_Reader::ParseColor(const json::Node& node) {
     if (node.IsArray()) {
         if (node.AsArray().size() == 3) {
             return svg::Rgb{ static_cast<uint8_t>(node.AsArray()[0].AsInt()),
@@ -132,8 +89,8 @@ svg::Color ParseColor(const json::Node& node) {
     }
 }
 
-AddBusQuery ReadBusQuery(json::Dict& query) {
-    AddBusQuery bus_query;
+domain::AddBusQuery JSON_Reader::ReadBusQuery(json::Dict& query) {
+    domain::AddBusQuery bus_query;
 
     bus_query.stops.resize(query.at("is_roundtrip").AsBool() ?
         query.at("stops").AsArray().size() :
@@ -153,8 +110,8 @@ AddBusQuery ReadBusQuery(json::Dict& query) {
     return bus_query;
 }
 
-AddStopQuery ReadAddStopQuery(json::Dict& query) {
-    AddStopQuery stop_query;
+domain::AddStopQuery JSON_Reader::ReadAddStopQuery(json::Dict& query) {
+    domain::AddStopQuery stop_query;
     stop_query.name = std::move(query.at("name").AsString());
     stop_query.coordinates.lat = query.at("latitude").AsDouble();
     stop_query.coordinates.lng = query.at("longitude").AsDouble();
@@ -164,11 +121,11 @@ AddStopQuery ReadAddStopQuery(json::Dict& query) {
     return stop_query;
 }
 
-std::vector<StatRequest> ReadStatRequests(const json::Array& query) {
-    std::vector<StatRequest> res;
+std::vector<domain::StatRequest> JSON_Reader::ReadStatRequests(const json::Array& query) {
+    std::vector<domain::StatRequest> res;
     for (const auto& query : query) {
         auto query_as_map = query.AsDict();
-        StatRequest stat_request(query_as_map.at("id").AsInt(),
+        domain::StatRequest stat_request(query_as_map.at("id").AsInt(),
             StringToStatRequestType(query_as_map.at("type").AsString()),
             query_as_map.find("name") != query_as_map.end() ?
             query_as_map.at("name").AsString() : ""); // Empty name field for Map Request

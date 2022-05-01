@@ -24,7 +24,7 @@ void TransportCatalogue::AddStop(const domain::Stop& stop) {
 
 }
 
-void TransportCatalogue::AddBus(const AddBusQuery& query) {
+void TransportCatalogue::AddBus(const domain::AddBusQuery& query) {
     auto& bus_it = buses_.emplace_back(domain::Bus(std::move(query.name), 0, 0.0, {}, query.is_roundtrip));
 
     for (size_t i = 0; i < query.stops.size(); ++i) {
@@ -65,8 +65,8 @@ const std::optional<domain::Bus*> TransportCatalogue::FindBus(const std::string_
 }
 
 
-const StopInfo TransportCatalogue::GetStopInfo(const std::string_view stop_name) {
-    StopInfo stop_info;
+const domain::StopInfo TransportCatalogue::GetStopInfo(const std::string_view stop_name) {
+    domain::StopInfo stop_info;
     stop_info.name = stop_name;
     if (stopname_to_stop_.count(stop_name) == 0) {
         stop_info.is_found = false;
@@ -82,7 +82,7 @@ const StopInfo TransportCatalogue::GetStopInfo(const std::string_view stop_name)
 }
 
 
-void TransportCatalogue::AddStopsDistances(const AddStopQuery& query) {
+void TransportCatalogue::AddStopsDistances(const domain::AddStopQuery& query) {
     domain::Stop* stop_from = stopname_to_stop_.at(query.name);
     for (const auto& [stop_to_name, distance] : query.distances) {
         domain::Stop* stop_to;
