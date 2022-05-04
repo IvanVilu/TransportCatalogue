@@ -1,0 +1,961 @@
+{
+    "render_settings": {
+        "width": 4700,
+        "height": 3200,
+        "padding": 50,
+        "stop_radius": 4,
+        "line_width": 8,
+        "stop_label_font_size": 10,
+        "stop_label_offset": [5, 5],
+        "underlayer_color": "white",
+        "underlayer_width": 3,
+        "color_palette": [ [0, 120, 191], [172, 191, 227], [0, 193, 243], [106, 201, 200], [255, 198, 27], [245, 130, 32], [137, 78, 53], [180, 212, 69], [161, 162, 163], [218, 33, 40], [255, 198, 26], [142, 71, 155], [72, 184, 94], [0, 193, 243]],
+        "bus_label_font_size": 14,
+        "bus_label_offset": [10, -15]
+    },
+    "base_requests": [
+        {
+    "type": "Stop",
+    "name": "Aeroport",
+    "latitude": 55.79981,
+    "longitude": 37.53412
+}, {
+    "type": "Stop",
+    "name": "Akademicheskaya",
+    "latitude": 55.68808,
+    "longitude": 37.57501
+}, {
+    "type": "Stop",
+    "name": "Alekseevskaya",
+    "latitude": 55.80737,
+    "longitude": 37.63844
+}, {
+    "type": "Stop",
+    "name": "Aleksandrovskij sad",
+    "latitude": 55.75219,
+    "longitude": 37.60836
+}, {
+    "type": "Stop",
+    "name": "Altuf'evo",
+    "latitude": 55.89504,
+    "longitude": 37.58605
+}, {
+    "type": "Stop",
+    "name": "Annino",
+    "latitude": 55.581818,
+    "longitude": 37.594978
+}, {
+    "type": "Stop",
+    "name": "Arbatskaya",
+    "latitude": 55.75228,
+    "longitude": 37.60357
+}, {
+    "type": "Stop",
+    "name": "Aviamotornaya",
+    "latitude": 55.75208,
+    "longitude": 37.71677
+}, {
+    "type": "Stop",
+    "name": "Avtozavodskaya",
+    "latitude": 55.70801,
+    "longitude": 37.65858
+}, {
+    "type": "Stop",
+    "name": "Babushkinskaya",
+    "latitude": 55.86814,
+    "longitude": 37.66292
+}, {
+    "type": "Stop",
+    "name": "Bagrationovskaya",
+    "latitude": 55.74326,
+    "longitude": 37.49753
+}, {
+    "type": "Stop",
+    "name": "Barrikadnaya",
+    "latitude": 55.76027,
+    "longitude": 37.58111
+}, {
+    "type": "Stop",
+    "name": "Baumanskaya",
+    "latitude": 55.77228,
+    "longitude": 37.67857
+}, {
+    "type": "Stop",
+    "name": "Begovaya",
+    "latitude": 55.77378,
+    "longitude": 37.54412
+}, {
+    "type": "Stop",
+    "name": "Belorusskaya",
+    "latitude": 55.77492,
+    "longitude": 37.58207
+}, {
+    "type": "Stop",
+    "name": "Belyaevo",
+    "latitude": 55.64371,
+    "longitude": 37.52762
+}, {
+    "type": "Stop",
+    "name": "Bibirevo",
+    "latitude": 55.88294,
+    "longitude": 37.60523
+}, {
+    "type": "Stop",
+    "name": "Biblioteka imeni Lenina",
+    "latitude": 55.75211,
+    "longitude": 37.60988
+}, {
+    "type": "Stop",
+    "name": "Bitcevskij park",
+    "latitude": 55.60029,
+    "longitude": 37.55735
+}, {
+    "type": "Stop",
+    "name": "Borovickaya",
+    "latitude": 55.75034,
+    "longitude": 37.60857
+}, {
+    "type": "Stop",
+    "name": "Botanicheskij sad",
+    "latitude": 55.84649,
+    "longitude": 37.63914
+}, {  
+    "type": "Stop",
+    "name": "Brateevo",
+    "latitude": 55.631363,
+    "longitude": 37.75174
+}, {
+    "type": "Stop",
+    "name": "Bul'var admirala Ushakova",
+    "latitude": 55.545344,
+    "longitude": 37.54305
+}, {
+    "type": "Stop",
+    "name": "Buninskaya alleya",
+    "latitude": 55.538132,
+    "longitude": 37.516376
+}, {
+    "type": "Stop",
+    "name": "Bratislavskaya",
+    "latitude": 55.66126,
+    "longitude": 37.7509
+}, {
+    "type": "Stop",
+    "name": "CHekhovskaya",
+    "latitude": 55.76596,
+    "longitude": 37.6075
+}, {
+    "type": "Stop",
+    "name": "CHerkizovskaya",
+    "latitude": 55.802,
+    "longitude": 37.74438
+}, {
+    "type": "Stop",
+    "name": "CHertanovskaya",
+    "latitude": 55.63978,
+    "longitude": 37.60893
+}, {
+    "type": "Stop",
+    "name": "CHistye prudy",
+    "latitude": 55.76426,
+    "longitude": 37.6389
+}, {
+    "type": "Stop",
+    "name": "CHkalovskaya",
+    "latitude": 55.756218,
+    "longitude": 37.659375
+}, {
+    "type": "Stop",
+    "name": "Dinamo",
+    "latitude": 55.78867,
+    "longitude": 37.55936
+}, {
+    "type": "Stop",
+    "name": "Bul'var Dmitriya Donskogo",
+    "latitude": 55.567759,
+    "longitude": 37.575724
+}, {
+    "type": "Stop",
+    "name": "Dmitrovskaya",
+    "latitude": 55.80756,
+    "longitude": 37.57959
+}, {
+    "type": "Stop",
+    "name": "Dobryninskaya",
+    "latitude": 55.72886,
+    "longitude": 37.62356
+}, {
+    "type": "Stop",
+    "name": "Domodedovskaya",
+    "latitude": 55.61009,
+    "longitude": 37.71612
+}, {
+    "type": "Stop",
+    "name": "Dostoevskaya",
+    "latitude": 55.782438,
+    "longitude": 37.612747
+}, {
+    "type": "Stop",
+    "name": "Dubrovka",
+    "latitude": 55.719732,
+    "longitude": 37.676915
+}, {
+    "type": "Stop",
+    "name": "Elektrozavodskaya",
+    "latitude": 55.78177,
+    "longitude": 37.70471
+}, {
+    "type": "Stop",
+    "name": "SHosse Entuziastov",
+    "latitude": 55.75837,
+    "longitude": 37.75155
+}, {
+    "type": "Stop",
+    "name": "Filevskij park",
+    "latitude": 55.73953,
+    "longitude": 37.48366
+}, {
+    "type": "Stop",
+    "name": "Fili",
+    "latitude": 55.74673,
+    "longitude": 37.51384
+}, {
+    "type": "Stop",
+    "name": "Frunzenskaya",
+    "latitude": 55.72718,
+    "longitude": 37.58036
+}, {
+    "type": "Stop",
+    "name": "Izmajlovskaya",
+    "latitude": 55.78768,
+    "longitude": 37.78329
+}, {
+    "type": "Stop",
+    "name": "Ulica akademika YAngelya",
+    "latitude": 55.596141,
+    "longitude": 37.59981
+}, {
+    "type": "Stop",
+    "name": "Kahovskaya",
+    "latitude": 55.65332,
+    "longitude": 37.59722
+}, {
+    "type": "Stop",
+    "name": "Kaluzhskaya",
+    "latitude": 55.65566,
+    "longitude": 37.53923
+}, {
+    "type": "Stop",
+    "name": "Kantemirovskaya",
+    "latitude": 55.6343,
+    "longitude": 37.65632
+}, {
+    "type": "Stop",
+    "name": "Kashirskaya",
+    "latitude": 55.65412,
+    "longitude": 37.64738
+}, {
+    "type": "Stop",
+    "name": "Kievskaya",
+    "latitude": 55.74388,
+    "longitude": 37.56673
+}, {
+    "type": "Stop",
+    "name": "Kitaj-gorod",
+    "latitude": 55.75634,
+    "longitude": 37.63002
+}, {
+    "type": "Stop",
+    "name": "Kitaj-gorod",
+    "latitude": 55.753903,
+    "longitude": 37.635405
+}, {
+    "type": "Stop",
+    "name": "Kolomenskaya",
+    "latitude": 55.67745,
+    "longitude": 37.66298
+}, {
+    "type": "Stop",
+    "name": "Komsomol'skaya",
+    "latitude": 55.77717,
+    "longitude": 37.655689
+}, {
+    "type": "Stop",
+    "name": "Kon'kovo",
+    "latitude": 55.63253,
+    "longitude": 37.52005
+}, {
+    "type": "Stop",
+    "name": "Kozhuhovskaya",
+    "latitude": 55.70533,
+    "longitude": 37.68508
+}, {
+    "type": "Stop",
+    "name": "Krasnogvardejskaya",
+    "latitude": 55.614491,
+    "longitude": 37.744724
+}, {
+    "type": "Stop",
+    "name": "Krasnopresnenskaya",
+    "latitude": 55.760109,
+    "longitude": 37.577141
+}, {
+    "type": "Stop",
+    "name": "Krasnosel'skaya",
+    "latitude": 55.780763,
+    "longitude": 37.666264
+}, {
+    "type": "Stop",
+    "name": "Krasnye vorota",
+    "latitude": 55.76958,
+    "longitude": 37.6499
+}, {
+    "type": "Stop",
+    "name": "Krest'yanskaya zastava",
+    "latitude": 55.732877,
+    "longitude": 37.668998
+}, {
+    "type": "Stop",
+    "name": "Kropotkinskaya",
+    "latitude": 55.74525,
+    "longitude": 37.60463
+}, {
+    "type": "Stop",
+    "name": "Krylatskoe",
+    "latitude": 55.75879,
+    "longitude": 37.40633
+}, {
+    "type": "Stop",
+    "name": "Kuncevskaya",
+    "latitude": 55.73045,
+    "longitude": 37.44646
+}, {
+    "type": "Stop",
+    "name": "Kurskaya",
+    "latitude": 55.75848,
+    "longitude": 37.65985
+}, {
+    "type": "Stop",
+    "name": "Kutuzovskaya",
+    "latitude": 55.73947,
+    "longitude": 37.53433
+}, {
+    "type": "Stop",
+    "name": "Kuz'minki",
+    "latitude": 55.70531,
+    "longitude": 37.76775
+}, {
+    "type": "Stop",
+    "name": "Kuzneckij most",
+    "latitude": 55.76118,
+    "longitude": 37.62386
+}, {
+    "type": "Stop",
+    "name": "Leninskij prospekt",
+    "latitude": 55.70818,
+    "longitude": 37.58742
+}, {
+    "type": "Stop",
+    "name": "Lubyanka",
+    "latitude": 55.75876,
+    "longitude": 37.62573
+}, {
+    "type": "Stop",
+    "name": "Lyublino",
+    "latitude": 55.67694,
+    "longitude": 37.76316
+}, {
+    "type": "Stop",
+    "name": "Mar'ina roshcha",
+    "latitude": 55.793602,
+    "longitude": 37.615762
+}, {
+    "type": "Stop",
+    "name": "Mar'ino",
+    "latitude": 55.65193,
+    "longitude": 37.74771
+}, {
+    "type": "Stop",
+    "name": "Marksistskaya",
+    "latitude": 55.7407,
+    "longitude": 37.65773
+}, {
+    "type": "Stop",
+    "name": "Mayakovskaya",
+    "latitude": 55.76909,
+    "longitude": 37.59635
+}, {
+    "type": "Stop",
+    "name": "Medvedkovo",
+    "latitude": 55.88594,
+    "longitude": 37.6612
+}, {
+    "type": "Stop",
+    "name": "Mendeleevskaya",
+    "latitude": 55.78251,
+    "longitude": 37.59792
+}, {
+    "type": "Stop",
+    "name": "Minskaya",
+    "latitude": 55.731548,
+    "longitude": 37.491016
+}, {
+    "type": "Stop",
+    "name": "Prospekt Mira",
+    "latitude": 55.781196,
+    "longitude": 37.633529
+}, {
+    "type": "Stop",
+    "name": "Mitino",
+    "latitude": 55.84589,
+    "longitude": 37.35909
+}, {
+    "type": "Stop",
+    "name": "Molodyozhnaya",
+    "latitude": 55.74001,
+    "longitude": 37.41724
+},  {
+    "type": "Stop",
+    "name": "Mezhdunarodnaya",
+    "latitude": 55.748543,
+    "longitude": 37.533699
+}, {
+    "type": "Stop",
+    "name": "Myakinino",
+    "latitude": 55.825426,
+    "longitude": 37.385164
+},  {  
+    "type": "Stop",
+    "name": "Nagatinskaya",
+    "latitude": 55.68386,
+    "longitude": 37.62285
+}, {
+    "type": "Stop",
+    "name": "Nagornaya",
+    "latitude": 55.67283,
+    "longitude": 37.61019
+}, {
+    "type": "Stop",
+    "name": "Nahimovskij prospekt",
+    "latitude": 55.66376,
+    "longitude": 37.60767
+}, {
+    "type": "Stop",
+    "name": "Novye CHeryomushki",
+    "latitude": 55.66892,
+    "longitude": 37.55417
+}, {
+    "type": "Stop",
+    "name": "Novogireevo",
+    "latitude": 55.75111,
+    "longitude": 37.81564
+}, {
+    "type": "Stop",
+    "name": "Novokosino",
+    "latitude": 55.740539,
+    "longitude": 37.856347
+}, {
+    "type": "Stop",
+    "name": "Novokuzneckaya",
+    "latitude": 55.74212,
+    "longitude": 37.62901
+}, {
+    "type": "Stop",
+    "name": "Novoyasenevskaya",
+    "latitude": 55.601906,
+    "longitude": 37.553271
+}, {
+    "type": "Stop",
+    "name": "Novoslobodskaya",
+    "latitude": 55.77921,
+    "longitude": 37.6009
+}, {
+    "type": "Stop",
+    "name": "Ohotnyj ryad",
+    "latitude": 55.75703,
+    "longitude": 37.61614
+}, {
+    "type": "Stop",
+    "name": "Oktyabr'skoe pole",
+    "latitude": 55.793615,
+    "longitude": 37.493496
+}, {
+    "type": "Stop",
+    "name": "Oktyabr'skaya",
+    "latitude": 55.729,
+    "longitude": 37.61139
+}, {
+    "type": "Stop",
+    "name": "Orekhovo",
+    "latitude": 55.61214,
+    "longitude": 37.69584
+}, {
+    "type": "Stop",
+    "name": "Otradnoe",
+    "latitude": 55.86417,
+    "longitude": 37.60488
+}, {
+    "type": "Stop",
+    "name": "Park kul'tury",
+    "latitude": 55.73512,
+    "longitude": 37.59328
+}, {
+    "type": "Stop",
+    "name": "Park Pobedy",
+    "latitude": 55.736559,
+    "longitude": 37.512591
+}, {
+    "type": "Stop",
+    "name": "Partizanskaya",
+    "latitude": 55.78962,
+    "longitude": 37.7479
+}, {
+    "type": "Stop",
+    "name": "Paveleckaya",
+    "latitude": 55.7313,
+    "longitude": 37.63612
+}, {
+    "type": "Stop",
+    "name": "Pechatniki",
+    "latitude": 55.69252,
+    "longitude": 37.7295
+}, {
+    "type": "Stop",
+    "name": "Perovo",
+    "latitude": 55.75109,
+    "longitude": 37.78854
+}, {
+    "type": "Stop",
+    "name": "Pervomajskaya",
+    "latitude": 55.79342,
+    "longitude": 37.79979
+}, {
+    "type": "Stop",
+    "name": "Petrovsko-Razumovskaya",
+    "latitude": 55.83712,
+    "longitude": 37.57349
+}, {
+    "type": "Stop",
+    "name": "Pionerskaya",
+    "latitude": 55.73583,
+    "longitude": 37.46731
+}, {
+    "type": "Stop",
+    "name": "Planernaya",
+    "latitude": 55.85931,
+    "longitude": 37.43687
+}, {
+    "type": "Stop",
+    "name": "Ploshchad' Il'icha",
+    "latitude": 55.745663,
+    "longitude": 37.681123
+}, {
+    "type": "Stop",
+    "name": "Ulica Podbel'skogo",
+    "latitude": 55.81503,
+    "longitude": 37.73209
+}, {
+    "type": "Stop",
+    "name": "Ulica Podbel'skogo",
+    "latitude": 55.81336,
+    "longitude": 37.73524
+}, {
+    "type": "Stop",
+    "name": "Polezhaevskaya",
+    "latitude": 55.77691,
+    "longitude": 37.51692
+}, {
+    "type": "Stop",
+    "name": "Polyanka",
+    "latitude": 55.73654,
+    "longitude": 37.61856
+}, {
+    "type": "Stop",
+    "name": "Prazhskaya",
+    "latitude": 55.61354,
+    "longitude": 37.60499
+}, {
+    "type": "Stop",
+    "name": "Preobrazhenskaya ploshchad'",
+    "latitude": 55.79655,
+    "longitude": 37.71591
+}, {
+    "type": "Stop",
+    "name": "Profsoyuznaya",
+    "latitude": 55.67822,
+    "longitude": 37.56381
+}, {
+    "type": "Stop",
+    "name": "Proletarskaya",
+    "latitude": 55.73171,
+    "longitude": 37.66726
+}, {
+    "type": "Stop",
+    "name": "ZHulebino",
+    "latitude": 55.698344,
+    "longitude": 37.850869
+}, {
+    "type": "Stop",
+    "name": "Pushkinskaya",
+    "latitude": 55.76565,
+    "longitude": 37.60417
+}, {
+    "type": "Stop",
+    "name": "Rechnoj vokzal",
+    "latitude": 55.85378,
+    "longitude": 37.47679
+}, {
+    "type": "Stop",
+    "name": "Ploshchad' Revolyucii",
+    "latitude": 55.75646,
+    "longitude": 37.62321
+}, {
+    "type": "Stop",
+    "name": "Rizhskaya",
+    "latitude": 55.79222,
+    "longitude": 37.63557
+}, {
+    "type": "Stop",
+    "name": "Rimskaya",
+    "latitude": 55.746487,
+    "longitude": 37.682631
+}, {
+    "type": "Stop",
+    "name": "Ryazanskij prospekt",
+    "latitude": 55.71753,
+    "longitude": 37.79425
+}, {
+    "type": "Stop",
+    "name": "Savyolovskaya",
+    "latitude": 55.79421,
+    "longitude": 37.58666
+}, {
+    "type": "Stop",
+    "name": "SHCHyolkovskaya",
+    "latitude": 55.80955,
+    "longitude": 37.79884
+}, {
+    "type": "Stop",
+    "name": "SHCHukinskaya",
+    "latitude": 55.80796,
+    "longitude": 37.46629
+}, {
+    "type": "Stop",
+    "name": "Semyonovskaya",
+    "latitude": 55.78279,
+    "longitude": 37.71844
+}, {
+    "type": "Stop",
+    "name": "Serpuhovskaya",
+    "latitude": 55.72658,
+    "longitude": 37.62462
+}, {
+    "type": "Stop",
+    "name": "Sevastopol'skaya",
+    "latitude": 55.65121,
+    "longitude": 37.59939
+}, {
+    "type": "Stop",
+    "name": "SHabolovskaya",
+    "latitude": 55.71886,
+    "longitude": 37.60797
+}, {
+    "type": "Stop",
+    "name": "Skhodnenskaya",
+    "latitude": 55.84937,
+    "longitude": 37.43951
+}, {
+    "type": "Stop",
+    "name": "Slavyanskij bul'var",
+    "latitude": 55.729508,
+    "longitude": 37.468829
+}, {
+    "type": "Stop",
+    "name": "Smolenskaya",
+    "latitude": 55.74823,
+    "longitude": 37.58384
+}, {
+    "type": "Stop",
+    "name": "Sokol",
+    "latitude": 55.80518,
+    "longitude": 37.51495
+}, {
+    "type": "Stop",
+    "name": "Sokol'niki",
+    "latitude": 55.78893,
+    "longitude": 37.67943
+}, {
+    "type": "Stop",
+    "name": "Sportivnaya",
+    "latitude": 55.72397,
+    "longitude": 37.56547
+}, {
+    "type": "Stop",
+    "name": "Sretenskij bul'var",
+    "latitude": 55.765551,
+    "longitude": 37.635261
+}, {
+    "type": "Stop",
+    "name": "Strogino",
+    "latitude": 55.80435,
+    "longitude": 37.396363
+}, {
+    "type": "Stop",
+    "name": "Studencheskaya",
+    "latitude": 55.73873,
+    "longitude": 37.54825
+}, {
+    "type": "Stop",
+    "name": "Suharevskaya",
+    "latitude": 55.77211,
+    "longitude": 37.63239
+},  {
+    "type": "Stop",
+    "name": "Sviblovo",
+    "latitude": 55.85543,
+    "longitude": 37.65419
+}, {
+    "type": "Stop",
+    "name": "Taganskaya",
+    "latitude": 55.74255,
+    "longitude": 37.65389
+}, {
+    "type": "Stop",
+    "name": "Teatral'naya",
+    "latitude": 55.75857,
+    "longitude": 37.6177
+}, {
+    "type": "Stop",
+    "name": "Tekstil'shchiki",
+    "latitude": 55.70947,
+    "longitude": 37.73282
+}, {
+    "type": "Stop",
+    "name": "Tyoplyj stan",
+    "latitude": 55.61814,
+    "longitude": 37.50814
+}, {
+    "type": "Stop",
+    "name": "Timiryazevskaya",
+    "latitude": 55.81842,
+    "longitude": 37.57571
+}, {
+    "type": "Stop",
+    "name": "Tret'yakovskaya",
+    "latitude": 55.74061,
+    "longitude": 37.62492
+}, {
+    "type": "Stop",
+    "name": "Trubnaya",
+    "latitude": 55.767605,
+    "longitude": 37.6221
+}, {
+    "type": "Stop",
+    "name": "Caricyno",
+    "latitude": 55.62011,
+    "longitude": 37.66939
+}, {
+    "type": "Stop",
+    "name": "Cvetnoj bul'var",
+    "latitude": 55.7716,
+    "longitude": 37.62058
+}, {
+    "type": "Stop",
+    "name": "Tul'skaya",
+    "latitude": 55.70901,
+    "longitude": 37.6226
+}, {
+    "type": "Stop",
+    "name": "Turgenevskaya",
+    "latitude": 55.7646,
+    "longitude": 37.63623
+}, {
+    "type": "Stop",
+    "name": "Tushinskaya",
+    "latitude": 55.8258,
+    "longitude": 37.43621
+}, {
+    "type": "Stop",
+    "name": "Tverskaya",
+    "latitude": 55.7652,
+    "longitude": 37.60352
+}, { 
+    "type": "Stop",
+    "name": "Ulica 1905 goda",
+    "latitude": 55.76355,
+    "longitude": 37.56375
+}, {  
+    "type": "Stop",
+    "name": "Universitet",
+    "latitude": 55.69167,
+    "longitude": 37.53433
+},  {
+    "type": "Stop",
+    "name": "Ulica Gorchakova",
+    "latitude": 55.541725,
+    "longitude": 37.530635
+}, {
+    "type": "Stop",
+    "name": "Ulica Skobelevskaya",
+    "latitude": 55.548043,
+    "longitude": 37.554738
+}, {
+    "type": "Stop",
+    "name": "Ulica Starokachalovskaya",
+    "latitude": 55.568913,
+    "longitude": 37.576637
+}, {
+    "type": "Stop",
+    "name": "Varshavskaya",
+    "latitude": 55.65381,
+    "longitude": 37.62084
+}, {
+    "type": "Stop",
+    "name": "VDNH",
+    "latitude": 55.82177,
+    "longitude": 37.64107
+}, {
+    "type": "Stop",
+    "name": "Prospekt Vernadskogo",
+    "latitude": 55.67613,
+    "longitude": 37.5045
+}, {
+    "type": "Stop",
+    "name": "Vladykino",
+    "latitude": 55.84669,
+    "longitude": 37.59251
+}, {
+    "type": "Stop",
+    "name": "Vystavochnaya",
+    "latitude": 55.750104,
+    "longitude": 37.540703
+}, {
+    "type": "Stop",
+    "name": "Vodnyj stadion",
+    "latitude": 55.8386,
+    "longitude": 37.48749
+}, {
+    "type": "Stop",
+    "name": "Vojkovskaya",
+    "latitude": 55.81811,
+    "longitude": 37.49905
+}, {
+    "type": "Stop",
+    "name": "Volokolamskaya",
+    "latitude": 55.83459,
+    "longitude": 37.38367
+}, {
+    "type": "Stop",
+    "name": "Volgogradskij prospekt",
+    "latitude": 55.7243,
+    "longitude": 37.68795
+}, {
+    "type": "Stop",
+    "name": "Volzhskaya",
+    "latitude": 55.69101,
+    "longitude": 37.75498
+}, {
+    "type": "Stop",
+    "name": "Vorob'yovy gory",
+    "latitude": 55.710454,
+    "longitude": 37.558601
+}, {
+    "type": "Stop",
+    "name": "Vyhino",
+    "latitude": 55.715,
+    "longitude": 37.81802
+}, {
+    "type": "Stop",
+    "name": "YAsenevo",
+    "latitude": 55.60535,
+    "longitude": 37.53494
+}, {
+    "type": "Stop",
+    "name": "YUgo-Zapadnaya",
+    "latitude": 55.66464,
+    "longitude": 37.48421
+}, {
+    "type": "Stop",
+    "name": "YUzhnaya"
+    "latitude": 55.62122,
+    "longitude": 37.60752
+},
+
+{
+    "type": "Bus",
+    "name": "Sokol'nicheskaya liniya",
+    "stops": ["Ulica Podbel'skogo", "CHerkizovskaya", "Preobrazhenskaya ploshchad'", "Sokol'niki", "Krasnosel'skaya", "Komsomol'skaya", "Krasnye vorota", "CHistye prudy", "Lubyanka", "Ohotnyj ryad", "Biblioteka imeni Lenina", "Kropotkinskaya", "Park kul'tury", "Frunzenskaya", "Sportivnaya", "Vorob'yovy gory", "Universitet", "Prospekt Vernadskogo", "YUgo-Zapadnaya"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Zamoskvoreckaya liniya",
+    "stops": ["Krasnogvardejskaya", "Domodedovskaya", "Orekhovo", "Caricyno", "Kantemirovskaya", "Kashirskaya", "Kolomenskaya", "Avtozavodskaya", "Paveleckaya", "Novokuzneckaya", "Teatral'naya", "Tverskaya", "Mayakovskaya", "Belorusskaya", "Dinamo", "Aeroport", "Sokol", "Vojkovskaya", "Vodnyj stadion", "Rechnoj vokzal"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Arbatsko-Pokrovskaya liniya",
+    "stops": ["SHCHyolkovskaya", "Pervomajskaya", "Izmajlovskaya", "Partizanskaya", "Semyonovskaya", "Elektrozavodskaya", "Baumanskaya", "Kurskaya", "Ploshchad' Revolyucii", "Arbatskaya", "Smolenskaya", "Kievskaya", "Park Pobedy", "Slavyanskij bul'var", "Kuncevskaya", "Molodyozhnaya", "Krylatskoe", "Strogino", "Myakinino", "Volokolamskaya", "Mitino"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Filyovskaya liniya",
+    "stops": ["Kuncevskaya", "Pionerskaya", "Filevskij park", "Bagrationovskaya", "Fili", "Kutuzovskaya", "Studencheskaya", "Kievskaya", "Smolenskaya", "Arbatskaya", "Aleksandrovskij sad", "Vystavochnaya", "Mezhdunarodnaya"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Kol'cevaya liniya",
+    "stops": ["Park kul'tury", "Oktyabr'skaya", "Dobryninskaya", "Paveleckaya", "Taganskaya", "Kurskaya", "Komsomol'skaya", "Prospekt Mira", "Novoslobodskaya", "Belorusskaya", "Krasnopresnenskaya", "Kievskaya", "Park kul'tury"],
+    "is_roundtrip": true
+}, {
+    "type": "Bus",
+    "name": "Kaluzhsko-Rizhskaya liniya",
+    "stops": ["Medvedkovo", "Babushkinskaya", "Sviblovo", "Botanicheskij sad", "VDNH", "Alekseevskaya", "Rizhskaya", "Prospekt Mira", "Suharevskaya", "Turgenevskaya", "Kitaj-gorod", "Tret'yakovskaya", "Oktyabr'skaya", "SHabolovskaya", "Leninskij prospekt", "Akademicheskaya", "Profsoyuznaya", "Novye CHeryomushki", "Kaluzhskaya", "Belyaevo", "Kon'kovo", "Tyoplyj stan", "YAsenevo", "Novoyasenevskaya"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Tagansko-Krasnopresnenskaya liniya",
+    "stops": ["Planernaya", "Skhodnenskaya", "Tushinskaya", "SHCHukinskaya", "Oktyabr'skoe pole", "Polezhaevskaya", "Begovaya", "Ulica 1905 goda", "Barrikadnaya", "Pushkinskaya", "Kuzneckij most", "Kitaj-gorod", "Taganskaya", "Proletarskaya", "Volgogradskij prospekt", "Tekstil'shchiki", "Kuz'minki", "Ryazanskij prospekt", "Vyhino"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Kalininskaya liniya",
+    "stops": ["Novokosino", "Novogireevo", "Perovo", "SHosse Entuziastov", "Aviamotornaya", "Ploshchad' Il'icha", "Marksistskaya", "Tret'yakovskaya"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Serpuhovsko-Timiryazevskaya liniya",
+    "stops": ["Altuf'evo", "Bibirevo", "Otradnoe", "Vladykino", "Petrovsko-Razumovskaya", "Timiryazevskaya", "Dmitrovskaya", "Savyolovskaya", "Mendeleevskaya", "Cvetnoj bul'var", "CHekhovskaya", "Borovickaya", "Polyanka", "Serpuhovskaya", "Tul'skaya", "Nagatinskaya", "Nagornaya", "Nahimovskij prospekt", "Sevastopol'skaya", "CHertanovskaya", "YUzhnaya", "Prazhskaya", "Ulica akademika YAngelya", "Annino", "Bul'var Dmitriya Donskogo"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Lyublinsko-Dmitrovskaya liniya",
+    "stops": ["Mar'ina roshcha", "Dostoevskaya", "Trubnaya", "Sretenskij bul'var", "CHkalovskaya", "Rimskaya", "Krest'yanskaya zastava", "Dubrovka", "Kozhuhovskaya", "Pechatniki", "Volzhskaya", "Lyublino", "Bratislavskaya", "Mar'ino"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Kahovskaya liniya",
+    "stops": ["Kashirskaya", "Varshavskaya", "Kahovskaya"],
+    "is_roundtrip": false
+}, {
+    "type": "Bus",
+    "name": "Butovskaya liniya",
+    "stops": ["Ulica Starokachalovskaya", "Ulica Skobelevskaya", "Bul'var admirala Ushakova", "Ulica Gorchakova", "Buninskaya alleya"],
+    "is_roundtrip": false
+},
+        {
+    "type": "Bus",
+    "name": "Solncevskaya liniya",
+    "stops": ["Minskaya"],
+    "is_roundtrip": false
+}
+        ],
+     "stat_requests": [{
+        "id": 1,
+        "type": "Map"
+    }]
+}
+
+
+
+
+

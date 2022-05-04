@@ -32,8 +32,14 @@ void TransportCatalogue::AddBus(const domain::AddBusQuery& query) {
         buses_.back().stops.push_back(stopname_to_stop_.at(query.stops[i]));
         stop_to_busnames_[stopname_to_stop_.at(query.stops[i])].insert(buses_.back().name);
 
-        // ведём подсчет расстояний до i < stops_names.size() - 1, чтобыы не учитывать последнюю остновку
+        // ведём подсчет расстояний до i < stops_names.size() - 1, чтобы не учитывать последнюю остновку
+
         if (i != query.stops.size() - 1) {
+            if (stop_to_stop_distance_.count(std::make_pair(stopname_to_stop_.at(query.stops[i]),
+                stopname_to_stop_.at(query.stops[i + 1]))) == 0 && 
+                stop_to_stop_distance_.count(std::make_pair(stopname_to_stop_.at(query.stops[i + 1]),
+                    stopname_to_stop_.at(query.stops[i]))) == 0)
+                continue;
             auto stop_to_stop = stop_to_stop_distance_.find(std::make_pair(stopname_to_stop_.at(query.stops[i]),
                 stopname_to_stop_.at(query.stops[i + 1])));
             if (stop_to_stop != stop_to_stop_distance_.end()) {

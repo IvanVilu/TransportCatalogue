@@ -149,7 +149,7 @@ namespace svg {
         virtual void RenderObject(const RenderContext& context) const = 0;
     };
 
- 
+
     class ObjectContainer {
     public:
         // Добавляет в svg-документ объект-наследник svg::Object
@@ -211,12 +211,12 @@ namespace svg {
 
             if (fill_color_) {
                 out << " fill=\""sv;
-                visit(ColorPrinter{ out }, *fill_color_); 
+                visit(ColorPrinter{ out }, *fill_color_);
                 out << "\""sv;
             }
             if (stroke_color_) {
                 out << " stroke=\""sv;
-                visit(ColorPrinter{out}, *stroke_color_);
+                visit(ColorPrinter{ out }, *stroke_color_);
                 out << "\""sv;
             }
             if (stroke_width_) {
@@ -324,8 +324,11 @@ namespace svg {
         // Выводит в ostream svg-представление документа
         void Render(std::ostream& out) const;
 
+        void SetDimension(int width, int height);
         // Прочие методы и данные, необходимые для реализации класса Document
-
+    private:
+        int width_ = 1920;
+        int height_ = 1080;
     };
 
     template<typename Obj>

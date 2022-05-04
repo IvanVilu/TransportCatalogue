@@ -115,9 +115,12 @@ domain::AddStopQuery JSON_Reader::ReadAddStopQuery(json::Dict& query) {
     stop_query.name = std::move(query.at("name").AsString());
     stop_query.coordinates.lat = query.at("latitude").AsDouble();
     stop_query.coordinates.lng = query.at("longitude").AsDouble();
-    for (const auto& [stop_name, dist] : query.at("road_distances").AsDict()) {
-        stop_query.distances.insert({ stop_name, dist.AsInt() });
+    if (query.count("road_distances") != 0) {
+        for (const auto& [stop_name, dist] : query.at("road_distances").AsDict()) {
+            stop_query.distances.insert({ stop_name, dist.AsInt() });
+        }
     }
+    
     return stop_query;
 }
 

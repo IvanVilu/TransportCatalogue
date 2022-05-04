@@ -203,7 +203,7 @@ namespace renderer {
             render_settings_.width.value(), render_settings_.height.value(), render_settings_.padding.value());
 
         svg::Document result;
-        
+        result.SetDimension(render_settings_.width.value(), render_settings_.height.value());
         for (const auto& line : GetBusLines(buses_sorted, sp)) {
             result.Add(line);
         }
