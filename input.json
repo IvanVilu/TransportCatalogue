@@ -949,10 +949,19 @@
     "is_roundtrip": false
 }
         ],
-     "stat_requests": [{
+     "stat_requests": [ {
         "id": 1,
+        "type": "Bus",
+        "name": "Butovskaya liniya"
+    }, {
+        "id": 2,
+        "type": "Stop",
+        "name": "Kon'kovo"
+    }, {
+        "id": 3,
         "type": "Map"
-    }]
+    }
+                      ]
 }
 
 

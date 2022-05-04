@@ -35,28 +35,11 @@ void TransportCatalogue::AddBus(const domain::AddBusQuery& query) {
         // ведём подсчет расстояний до i < stops_names.size() - 1, чтобы не учитывать последнюю остновку
 
         if (i != query.stops.size() - 1) {
-            if (stop_to_stop_distance_.count(std::make_pair(stopname_to_stop_.at(query.stops[i]),
-                stopname_to_stop_.at(query.stops[i + 1]))) == 0 && 
-                stop_to_stop_distance_.count(std::make_pair(stopname_to_stop_.at(query.stops[i + 1]),
-                    stopname_to_stop_.at(query.stops[i]))) == 0)
-                continue;
-            auto stop_to_stop = stop_to_stop_distance_.find(std::make_pair(stopname_to_stop_.at(query.stops[i]),
-                stopname_to_stop_.at(query.stops[i + 1])));
-            if (stop_to_stop != stop_to_stop_distance_.end()) {
-                bus_it.route_lenght += (*stop_to_stop).second;
-            }
-            else {
-                stop_to_stop = stop_to_stop_distance_.find(std::make_pair(stopname_to_stop_.at(query.stops[i + 1]),
-                    stopname_to_stop_.at(query.stops[i])));
-                if (stop_to_stop != stop_to_stop_distance_.end()) {
-                    bus_it.route_lenght += (*stop_to_stop).second;
-                }
-            }
 
             geo::Coordinates lhs = { stopname_to_stop_.at(query.stops[i])->latitude, stopname_to_stop_.at(query.stops[i])->longitude };
             geo::Coordinates rhs = { stopname_to_stop_.at(query.stops[i + 1])->latitude, stopname_to_stop_.at(query.stops[i + 1])->longitude };
 
-            bus_it.geo_dist += geo::ComputeDistance(lhs, rhs);
+            bus_it.route_lenght += geo::ComputeDistance(lhs, rhs);
         }
     }
 

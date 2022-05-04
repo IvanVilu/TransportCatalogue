@@ -51,7 +51,7 @@ json::Node RequestHandler::GetBusResponce(const domain::StatRequest& request) {
     if (bus_stat) {
         domain::BusInfo stat = bus_stat.value();
         json::Node n = json::Builder{}.StartDict().
-        Key("curvature").Value(stat.GetCurvature()).
+       // Key("curvature").Value(stat.GetCurvature()).
         Key("request_id").Value(request.id).
         Key("route_length").Value(stat.route_lenght).
         Key("stop_count").Value(stat.stops_count).
