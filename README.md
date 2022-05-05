@@ -2,7 +2,7 @@
 
 Проект транспортного каталога, позволяющий загружать в базу данных маршруты и остановки, через которые они следуют в JSON формате. После чего возможно обрабатывать запросы для получения информации о маршрутах, остановках и отрисовки схемы транспорта в SVG формате.
 
-![Transport Catalogue](https://ibb.co/QCzGk6Q "Transport Catalogue")
+![Transport Catalogue](https://i.ibb.co/jWBFzLf/image.png "Transport Catalogue")
 
 
 ## Сборка и запуск
