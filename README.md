@@ -11,26 +11,26 @@
 
 После скачивания репозитория необходимо сделать следующее:
 
--Нажаать WIN + R;
+-Нажать WIN + R;
 -Набрать cmd в появившемся окне и нажать OK.
 
-Ввести в консоль команды в таком порядке:
-- cd <Директория с проектом>/cpp-transport-catalogue
-- cmake .
-- cmake --build . --target TransportCatalogue --config Release
-- "Release/TransportCatalogue.exe" input.json output.json map.svg
+-Ввести в консоль команды в таком порядке:
+    - cd <Директория с проектом>/cpp-transport-catalogue
+    - cmake .
+    - cmake --build . --target TransportCatalogue --config Release
+    - "Release/TransportCatalogue.exe" input.json output.json map.svg
 
-После этого программа отработает на тестовом файле input.json и в папке проекта появятся два файла:
+После этого программа отработает на тестовом файле input.json и сформирует результат в файлы:
 
-output.json - JSON ответ на запросы;
-map.svg - векторный файл с SVG разметкой, который можно открыть в любом современном браузере.
+* output.json - JSON ответ на запросы;
+* map.svg - векторный файл с SVG разметкой, который можно открыть в любом современном браузере.
 
 ## Подробнее
 ### Аргументы
 При запуске программы необходимо передать три аргумента - имени файлов:
 "Release/TransportCatalogue.exe" input.json output.json map.svg
-- input.json - входной файл
-- output.json map.svg - файлы для вывода
+* input.json - входной файл
+* output.json map.svg - файлы для вывода
 ### Формат ввода
 
 Входной файл представляет из себя словаарь в JSON формате со следующими элементами:
