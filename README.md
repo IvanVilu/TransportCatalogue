@@ -33,7 +33,7 @@ map.svg - векторный файл с SVG разметкой, который 
 ```JSON
 {
 "render settings" : // настройки отрисовки SVG
-{
+        {
         "width": 4700, //ширина холста
         "height": 3200, // высота холста
         "padding": 50, // отступ от краёв
@@ -49,40 +49,40 @@ map.svg - векторный файл с SVG разметкой, который 
         }
 
 "base_requests": // запросы на добавление в базу данных остановок и маршрутов
-[ 
-        { // запрос на добавление остановки
-                "type": "Stop", // тип запроса
-                "name": "Aeroport",
-                "latitude": 55.79981,
-                "longitude": 37.53412
-        }, 
+        [ 
+                { // запрос на добавление остановки
+                        "type": "Stop", // тип запроса
+                        "name": "Aeroport",
+                        "latitude": 55.79981,
+                        "longitude": 37.53412
+                }, 
 
-        { // запрос на добавление маршрута
-                "type": "Bus", // тип запроса
-                "name": "Sokol'nicheskaya liniya",
-                "stops": ["Ulica Podbel'skogo", "CHerkizovskaya", "Preobrazhenskaya ploshchad'"],
-                "is_roundtrip": false // true если кольцевой маршрут
-        } 
-],
+                { // запрос на добавление маршрута
+                        "type": "Bus", // тип запроса
+                        "name": "Sokol'nicheskaya liniya",
+                        "stops": ["Ulica Podbel'skogo", "CHerkizovskaya", "Preobrazhenskaya ploshchad'"],
+                        "is_roundtrip": false // true если кольцевой маршрут
+                } 
+        ],
 
 "stat_requests": //запросы к базе данных
-[ 
-        { 
-        "id": 1,
-        "type": "Bus",
-        "name": "Butovskaya liniya"
-        }, 
+        [ 
+                { 
+                "id": 1,
+                "type": "Bus",
+                "name": "Butovskaya liniya"
+                }, 
         
-        {
-        "id": 2,
-        "type": "Stop",
-        "name": "Kon'kovo"
-        }, 
+                {
+                "id": 2,
+                "type": "Stop",
+                "name": "Kon'kovo"
+                }, 
         
-        {
-        "id": 3,
-        "type": "Map"
-        }
-]
+                {
+                "id": 3,
+                "type": "Map"
+                }
+        ]
 }
 ```
