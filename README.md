@@ -86,3 +86,33 @@ map.svg - векторный файл с SVG разметкой, который 
         ]
 }
 ```
+
+### Формат вывода
+
+На выходе возможно получить два файла: JSON и SVG.
+
+Структура JSON файла:
+```JSON
+[
+        { // ответ для запроса типа Stop - список всех маршрутов, проходящих через остановку
+        "buses": [ 
+                "48P8YKrpM", 
+                "5ikY33t OlcD Zf5kYI", 
+                "9Wps9cAoxfNzYa i3S"
+                ],
+        "request_id": 1
+        }, 
+        
+        { //ответ для запроса типа Bus 
+                "request_id": 2, 
+                "route_length": 5.10261e+07,
+                "stop_count": 79,
+                "unique_stop_count": 54
+        },
+        
+        { //ответ для запроса типа Map 
+                "map": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n<polyline points=\"11132.6,13075.8 12159,12905.3 11665.7,12886.6 12518.7,10341.2\" fill=\"none\" stroke=\"rgb(148,37,58)\" stroke-width=\"11280.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<text x=\"11391.9\" y=\"10555.9\" dx=\"74126.5\" dy=\"20841.4\" font-size=\"67245\" font-family=\"Verdana\" font-weight=\"bold\" fill=\"rgb(49,34,246)\">BmF4q5lD8CXiL2PNJMH6</text></svg>",
+                "request_id": 3
+        }
+]
+```
