@@ -15,10 +15,10 @@
 -Набрать cmd в появившемся окне и нажать OK.
 
 -Ввести в консоль команды в таком порядке:
-    - cd <Директория с проектом>/cpp-transport-catalogue
-    - cmake .
-    - cmake --build . --target TransportCatalogue --config Release
-    - "Release/TransportCatalogue.exe" input.json output.json map.svg
+    1. cd <Директория с проектом>/cpp-transport-catalogue
+    2. cmake .
+    3. cmake --build . --target TransportCatalogue --config Release
+    4. "Release/TransportCatalogue.exe" input.json output.json map.svg
 
 После этого программа отработает на тестовом файле input.json и сформирует результат в файлы:
 
